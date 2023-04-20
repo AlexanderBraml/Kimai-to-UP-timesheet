@@ -1,8 +1,8 @@
 import argparse
 from os.path import expanduser
 
-from get_kimai_data import read_csv
-from write_target import write_to_file
+from src.get_kimai_data import read_csv
+from src.write_target import write_to_file
 
 parser = argparse.ArgumentParser()
 
