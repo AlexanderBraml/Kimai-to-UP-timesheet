@@ -24,13 +24,13 @@ If you're using the api you have to specify the following additional parameters:
 - url
 - user
 - api password
-- activity (id of the activity to sync, can be retrieved through `xxx`)
+- activity name
 - month
 
 A call could look like this:
 
 ```shell
-python3 main.py api --url "https://demo.kimai.org" --user john_user --password api_kitten --activity 1 --month 1 --target ~/timesheet.xlsx --template ~/template.xlsx
+python3 main.py api --url "https://demo.kimai.org" --user john_user --password "api_kitten" --activity "Work" --month 1 --target ~/timesheet.xlsx --template ~/template.xlsx
 ```
 
 ### Using a csv file
