@@ -20,7 +20,7 @@ You always have to specify the following parameters:
 
 ### Using the api
 
-If you're using the api you have to specify the following additional parameters:
+If you're using the api as the data source you have to specify the following additional parameters:
 - url
 - user
 - api password
@@ -35,7 +35,7 @@ python3 main.py api --url "https://demo.kimai.org" --user john_user --password "
 
 ### Using a csv file
 
-If you want to use a csv file as source, you have to specify the path to it. The following call uses `~/source.csv` as data source.
+If you want to use a csv file as the source, you have to specify the path to it. The following call uses `~/source.csv` as a data source:
 ```shell
 python3 main.py csv --source ~/kimai.csv --target ~/timesheet.xlsx --template ~/template.xlsx
 ```
