@@ -1,6 +1,6 @@
 # Kimai-to-UP-timesheet
 
-Sync kimai data to the default timesheet provided by the University of Passau for student assistants.
+Sync kimai data to the [default timesheet](https://www.uni-passau.de/fileadmin/dokumente/beschaeftigte/Personal/Formulare_Internetseite/_VI_4/Stud_Hilfskraefte/Dokumentation_der_taeglichen_Arbeitszeit.xlsx) provided by the University of Passau for student assistants.
 
 ## Installation
 
