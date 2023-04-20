@@ -3,8 +3,6 @@ from typing import Tuple, List
 
 from openpyxl import load_workbook
 
-from src.get_kimai_data import read_csv
-
 DATE_INDEX = (5, 12)
 
 TIME_ROW = 12
@@ -39,8 +37,3 @@ def write_to_file(target_template: str, target_file: str,
 
     workbook.save(target_file)
     workbook.close()
-
-
-if __name__ == '__main__':
-    times = read_csv('../templates/source.csv')
-    write_to_file('../templates/target.xlsx', '../templates/April2023.xlsx', times)

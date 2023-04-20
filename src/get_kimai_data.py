@@ -21,8 +21,3 @@ def read_csv(path: str) -> List[Tuple[datetime.datetime, datetime.datetime]]:
             times.append((start, end))
 
     return times
-
-
-if __name__ == '__main__':
-    r = read_csv('../templates/source.csv')
-    pass
