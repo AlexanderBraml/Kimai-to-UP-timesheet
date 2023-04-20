@@ -24,7 +24,7 @@ def read_csv(path: str) -> List[Tuple[datetime.datetime, datetime.datetime]]:
     return times
 
 
-def read_api(url: str, user: str, token: str, activity: int, month: int) \
+def read_api(url: str, user: str, token: str, activity: str, month: int) \
         -> List[Tuple[datetime.datetime, datetime.datetime]]:
     headers = {
         'X-AUTH-USER': user,
@@ -32,7 +32,7 @@ def read_api(url: str, user: str, token: str, activity: int, month: int) \
     }
     params = {
         'size': 999999,
-        'activities': [activity],
+        'activities': [activity_id(url, user, token, activity)],
     }
 
     response = requests.get(url + '/api/timesheets', headers=headers, params=params)
@@ -47,3 +47,22 @@ def read_api(url: str, user: str, token: str, activity: int, month: int) \
     times.sort(key=lambda x: x[0])
 
     return times
+
+
+def activity_id(url: str, user: str, token: str, activity: str) -> int:
+    headers = {
+        'X-AUTH-USER': user,
+        'X-AUTH-TOKEN': token,
+    }
+    params = {
+        'size': 999999,
+    }
+
+    response = requests.get(url + '/api/activities', headers=headers, params=params)
+    result = response.json()
+
+    for entry in result:
+        if entry['name'] == activity:
+            return entry['id']
+
+    raise ValueError(f'Id of activity {activity} cannot be found.')
