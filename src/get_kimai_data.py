@@ -41,9 +41,11 @@ def read_api(url: str, user: str, token: str, activity: str, month: int) \
     times = []
     for entry in result:
         start_date = parse(entry['begin']).replace(tzinfo=None)
-        end_date = parse(entry['end']).replace(tzinfo=None)
-        if start_date.year == datetime.datetime.now().year and int(start_date.month) == month:
-            times.append((start_date, end_date))
+        running = entry['end'] is None
+        if not running:
+            end_date = parse(entry['end']).replace(tzinfo=None)
+            if start_date.year == datetime.datetime.now().year and int(start_date.month) == month:
+                times.append((start_date, end_date))
     times.sort(key=lambda x: x[0])
 
     return times
