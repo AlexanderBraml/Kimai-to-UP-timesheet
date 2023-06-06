@@ -32,7 +32,7 @@ def read_api(url: str, user: str, token: str, activity: str, month: int) \
     }
     params = {
         'size': 999999,
-        'activities': [activity_id(url, user, token, activity)],
+        'activity': activity_id(url, user, token, activity)
     }
 
     response = requests.get(url + '/api/timesheets', headers=headers, params=params)
