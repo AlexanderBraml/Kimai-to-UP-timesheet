@@ -18,7 +18,7 @@ MAX_ROWS = 31
 
 def write_to_file(target_template: str, target_file: str,
                   times: List[Tuple[datetime.datetime, datetime.datetime]]) -> None:
-    assert 0 < len(times) <= 2 * MAX_ROWS
+    assert 0 <= len(times) <= 2 * MAX_ROWS
 
     workbook = load_workbook(filename=target_template)
     sheet = workbook.active
