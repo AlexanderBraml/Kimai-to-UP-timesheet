@@ -18,17 +18,18 @@ if __name__ == '__main__':
     parser.add_argument('--user', help='Your kimai username.')
     parser.add_argument('--password', help='Your kimai api password, not your regular password.')
     parser.add_argument('--activity', help='The activity to be exported.')
+    parser.add_argument('--year', help='The year to export.')
     parser.add_argument('--month', help='The month to export.')
 
     args = parser.parse_args()
 
     times = []
     if args.mode == 'api':
-        if any(a is None for a in [args.url, args.user, args.password, args.activity, args.month]):
+        if any(a is None for a in [args.url, args.user, args.password, args.activity, args.year, args.month]):
             raise ValueError('The following arguments are required when using api as source: --url --user '
-                             '--password --activity --month')
+                             '--password --activity --year --month')
 
-        times = read_api(args.url, args.user, args.password, args.activity, int(args.month))
+        times = read_api(args.url, args.user, args.password, args.activity, int(args.year), int(args.month))
     elif args.mode == 'csv':
         if args.source is None:
             raise ValueError('The following arguments are required when using csv as source: --source')

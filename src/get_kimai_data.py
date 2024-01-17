@@ -24,7 +24,7 @@ def read_csv(path: str) -> List[Tuple[datetime.datetime, datetime.datetime]]:
     return times
 
 
-def read_api(url: str, user: str, token: str, activity: str, month: int) \
+def read_api(url: str, user: str, token: str, activity: str, year: int, month: int) \
         -> List[Tuple[datetime.datetime, datetime.datetime]]:
     headers = {
         'X-AUTH-USER': user,
@@ -44,7 +44,7 @@ def read_api(url: str, user: str, token: str, activity: str, month: int) \
         running = entry['end'] is None
         if not running:
             end_date = parse(entry['end']).replace(tzinfo=None)
-            if start_date.year == datetime.datetime.now().year and int(start_date.month) == month:
+            if start_date.year == year and int(start_date.month) == month:
                 times.append((start_date, end_date))
     times.sort(key=lambda x: x[0])
 
